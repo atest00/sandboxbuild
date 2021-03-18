@@ -18,16 +18,6 @@ const client = new MongoClient(url);
 client.connect();
 
 
-if (process.env.NODE_ENV === 'production') 
-{
-  // Set static folder
-  app.use(express.static('frontend/build'));
-
-  app.get('*', (req, res) => 
- {
-    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-  });
-}
 
 
 app.post('/api/login', async (req, res, next) =>
@@ -97,4 +87,16 @@ app.post('/api/Register', async (req, res, next) =>
     var ret = { error: error };
     res.status(200).json(ret);
 });
+
+if (process.env.NODE_ENV === 'production') 
+{
+  // Set static folder
+  app.use(express.static('frontend/build'));
+
+  app.get('*', (req, res) => 
+ {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  });
+}
+
 app.listen(5000);
