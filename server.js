@@ -3,19 +3,17 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const hashPass = require('password-hash');
 var ObjectId = require('mongodb').ObjectID;
-// const path = require("path");
-// const PORT = process.env.PORT || 5000;
-// require('dotenv').config();
+const mongoose = require('mongoose');
+const path = require("path");
+const PORT = process.env.PORT || 5000;
+require('dotenv').config(); 
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
 app.set('port', (process.env.PORT || 5000));
-
-const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb+srv://Ashwin:GiftApp7788@cluster0.j5zdr.mongodb.net/GiftAppDatabase?retryWrites=true&w=majority';
-
+const url = process.env.MONGODB_URI;
 const client = new MongoClient(url);
 client.connect();
 
