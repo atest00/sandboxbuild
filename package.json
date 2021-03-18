@@ -1,18 +1,18 @@
 {
   "name": "sandboxbuild",
   "version": "1.0.0",
-   "engines": {
+  "engines": {
     "node": "14.15.5"
   },
   "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build" : "cd frontend && npm run build",
-    "install-client" : "cd frontend && npm install",
+    "build": "cd frontend && npm run build",
+    "install-client": "cd frontend && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
-    "start" : "node server.js",
-    "client" : "cd client && npm start"
+    "start": "node server.js",
+    "client": "cd client && npm start"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongodb": "^3.6.5",
+    "mongoose": "^5.12.1",
     "nodemon": "^2.0.7",
     "password-hash": "^1.2.2"
   }
