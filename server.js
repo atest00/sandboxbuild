@@ -12,7 +12,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.set('port', (process.env.PORT || 6393));
+app.set('port', (process.env.PORT || 5000));
 const url = process.env.MONGODB_URI;
 const client = new MongoClient(url);
 client.connect();
@@ -97,4 +97,4 @@ app.post('/api/Register', async (req, res, next) =>
     var ret = { error: error };
     res.status(200).json(ret);
 });
-app.listen(6393);
+app.listen(5000);
