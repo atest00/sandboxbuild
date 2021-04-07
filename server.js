@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');           
+const PORT = process.env.PORT || 5000;  
 
 const app = express();
 app.use(cors());
@@ -49,4 +51,11 @@ app.use((req, res, next) =>
   next();
 });
 
-app.listen(5000); // start Node + Express server on port 5000
+app.listen(PORT, () => 
+{
+  console.log('Server listening on port ${PORT}.');
+  // If it does not work do:
+  console.log('Server listening on port’ + PORT');
+
+});
+
